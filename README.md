@@ -40,12 +40,13 @@ Caching reduces database queries and speeds up responses by storing frequently a
 │   ├── config/RedisConfig.java
 │   ├── application.properties
 ├── frontend (Next.js + TypeScript + SWR)
-│   ├── pages/index.tsx
-│   ├── components/UserList.tsx
-│   ├── components/UserForm.tsx
-│   ├── hooks/useUsers.ts
-│   ├── utils/api.ts
-│   ├── types/index.ts
+│   ├── app
+│   │   ├── lib/fetchUsers.ts
+│   │   ├── lib/api.ts
+│   │   ├── types/index.ts
+│   │   ├── users/UserList.tsx
+│   │   ├── users/UserForm.tsx
+│   │   ├── pages/index.tsx
 │   ├── .env.local
 ```
 
@@ -53,8 +54,8 @@ Caching reduces database queries and speeds up responses by storing frequently a
 
 # 🔥 Caching in Backend (Spring Boot + Redis)
 ### **How does it work?**
-✅ **`@Cacheable`** stores data in **Redis** after the first request.
-✅ **`@CacheEvict`** removes/updates cache when data changes.
+✅ **`@Cacheable`** stores data in **Redis** after the first request.<br>
+✅ **`@CacheEvict`** removes/updates cache when data changes.<br>
 ✅ **Redis** stores the cache, reducing database queries.
 
 ### **Enable Caching in Spring Boot**
@@ -95,8 +96,8 @@ public class UserService {
 
 # ⚡ Caching in Frontend (Next.js + SWR)
 ### **How does it work?**
-✅ **SWR** fetches data and caches it in the browser.
-✅ **Mutate()** refreshes data after updates/deletions.
+✅ **SWR** fetches data and caches it in the browser.<br>
+✅ **Mutate()** refreshes data after updates/deletions.<br>
 ✅ **Faster UI** as fewer API calls are needed.
 
 ### **Install Dependencies**
@@ -159,24 +160,38 @@ npm run dev
 
 ---
 
+# 🔥 How Frontend Caching Works?
+✅ SWR caches API responses in the browser memory.<br>
+✅ **`useSWR`** hook fetches data and caches it for faster UI updates.<br>
+✅ **`mutate()`** updates the cache after data changes.<br>
+✅ **Faster UI** as fewer API calls are needed.
+✅ When the data is fetched once, it is stored locally, reducing redundant API calls.<br>
+✅ On subsequent requests, SWR first returns the cached data (for fast UI updates) and then re-fetches it in the background.<br>
+✅ When data changes (e.g., a user is added), SWR's mutate() updates the cache.
+
+---
+
 # 🎯 How Caching Helps Authentication & Authorization
-✅ **Login Token Caching**: Reduce database hits for session validation.
-✅ **Authorization Data Caching**: Faster role-based access control.
+✅ **Login Token Caching**: Reduce database hits for session validation.<br>
+✅ **Role-Based Access Control**: Cache user roles for faster authorization.<br>
+✅ **Session Expiration**: Auto-clear cache after a set period.<br>
+✅ **Faster Authentication & Authorization**: Improve performance with caching.<br>
+✅ **Authorization Data Caching**: Faster role-based access control.<br>
 ✅ **Session Expiration**: Auto-clear cache after a set period.
 
 ---
 
 # 🎉 Conclusion
-✅ **Spring Boot + Redis** caches data to avoid repetitive DB queries.
-✅ **Next.js + SWR** caches API responses, making UI faster.
-✅ **Improves authentication and authorization performance**.
+✅ **Spring Boot + Redis** caches data to avoid repetitive DB queries.<br>
+✅ **Next.js + SWR** caches API responses, making UI faster.<br>
+✅ **Improves authentication and authorization performance**.<br>
 ✅ **Reduces latency, improves user experience, and speeds up API calls.** 🚀
 
 ---
 
 # 💡 Future Enhancements
-✅ Add **JWT-based authentication with cache**.
-✅ Implement **auto-expiring tokens in Redis**.
+✅ Add **JWT-based authentication with cache**.<br>
+✅ Implement **auto-expiring tokens in Redis**.<br>
 ✅ Add **pagination with cache optimization**.
 
 ---
