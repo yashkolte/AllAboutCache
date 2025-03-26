@@ -27,7 +27,7 @@ Caching reduces database queries and speeds up responses by storing frequently a
 
 ---
 
-# 📂 Project Structure
+## 📂 Project Structure
 ```
 📦 caching-project
 ├── backend (Spring Boot + Redis + MySQL)
@@ -52,7 +52,7 @@ Caching reduces database queries and speeds up responses by storing frequently a
 
 ---
 
-# 🔥 Caching in Backend (Spring Boot + Redis)
+## 🔥 Caching in Backend (Spring Boot + Redis)
 ### **How does it work?**
 ✅ **`@Cacheable`** stores data in **Redis** after the first request.<br>
 ✅ **`@CacheEvict`** removes/updates cache when data changes.<br>
@@ -94,7 +94,7 @@ public class UserService {
 
 ---
 
-# ⚡ Caching in Frontend (Next.js + SWR)
+## ⚡ Caching in Frontend (Next.js + SWR)
 ### **How does it work?**
 ✅ **SWR** fetches data and caches it in the browser.<br>
 ✅ **Mutate()** refreshes data after updates/deletions.<br>
@@ -120,7 +120,7 @@ export function useUsers() {
 
 ---
 
-# 🚀 Running the Project
+## 🚀 Running the Project
 
 ## **1️⃣ Setup Backend (Spring Boot)**
 ### **Install Dependencies**
@@ -150,7 +150,7 @@ npm run dev
 
 ---
 
-# 📡 API Endpoints
+## 📡 API Endpoints
 | Method | Endpoint | Description |
 |--------|---------|-------------|
 | **GET** | `/users/{id}` | Get user by ID (cached) |
@@ -160,7 +160,7 @@ npm run dev
 
 ---
 
-# 🔥 How Frontend Caching Works?
+## 🔥 How Frontend Caching Works?
 ✅ SWR caches API responses in the browser memory.<br>
 ✅ **`useSWR`** hook fetches data and caches it for faster UI updates.<br>
 ✅ **`mutate()`** updates the cache after data changes.<br>
@@ -171,7 +171,7 @@ npm run dev
 
 ---
 
-# 🎯 How Caching Helps Authentication & Authorization
+## 🎯 How Caching Helps Authentication & Authorization
 ✅ **Login Token Caching**: Reduce database hits for session validation.<br>
 ✅ **Role-Based Access Control**: Cache user roles for faster authorization.<br>
 ✅ **Session Expiration**: Auto-clear cache after a set period.<br>
@@ -181,7 +181,7 @@ npm run dev
 
 ---
 
-# 🎉 Conclusion
+## 🎉 Conclusion
 ✅ **Spring Boot + Redis** caches data to avoid repetitive DB queries.<br>
 ✅ **Next.js + SWR** caches API responses, making UI faster.<br>
 ✅ **Improves authentication and authorization performance**.<br>
@@ -189,12 +189,15 @@ npm run dev
 
 ---
 
-# 💡 Future Enhancements
+## 💡 Future Enhancements
 ✅ Add **JWT-based authentication with cache**.<br>
 ✅ Implement **auto-expiring tokens in Redis**.<br>
 ✅ Add **pagination with cache optimization**.
 
 ---
 
-🔥 **Now your project is fully optimized with caching! 🚀** Let me know if you need enhancements!
+🔥 **Now your project is fully optimized with caching! 🚀** Let me know if you find any bug!
+
+## 📚 Read my article
+for more information - https://medium.com/@yashkolte_/what-is-caching-22b7dbcf3d09
 
